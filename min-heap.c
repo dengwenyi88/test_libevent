@@ -34,11 +34,13 @@ main(int argc, char **argv)
     }
 
     min_heap_print(&heap);
+    printf("heap size :%d\n",min_heap_size(&heap));
 
     while(1) {
         e = min_heap_pop(&heap);
         if(!e)
             break;
+        mm_free(e);
     }
 
     min_heap_dtor(&heap);
