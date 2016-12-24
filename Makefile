@@ -4,14 +4,16 @@ DEBUG = -g -O2
 CFLAGS = $(DEBUG) -Wall -c
 RM = -rm -rf
 
-SRCS = min-heap.c
+M = min-heap
+
+SRCS = test_$(M).c
 OBJS = $(patsubst %.c,%.o, $(SRCS))
 
 HEADER_PATH = -I/home/sherlock/libevent-2.0.22 
 LIB_PATH = -L/usr/local/lib
 
 LIBS = -levent
-TARGET = test_libevent
+TARGET = test_$(M)
 
 $(TARGET) : $(OBJS)
 	$(CC) $^ -o $@ $(LIB_PATH) $(LIBS)

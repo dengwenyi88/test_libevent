@@ -22,20 +22,19 @@ main(int argc, char **argv)
 {
     struct min_heap heap;
     struct event *inserted[1024];
-    struct event *e,*last_e;
+    struct event *e;
     int i;
 
     min_heap_ctor(&heap);
     
-    for(i = 0;i < 1024; ++i) {
+    for(i = 0;i < 9; ++i) {
         inserted[i] = mm_malloc(sizeof(struct event));
         set_random_timeout(inserted[i]);
         min_heap_push(&heap,inserted[i]);
     }
 
     min_heap_print(&heap);
-    printf("heap size :%d\n",min_heap_size(&heap));
-
+    printf("heap size :%d\n",min_heap_size(&heap)); 
     while(1) {
         e = min_heap_pop(&heap);
         if(!e)
