@@ -12,7 +12,7 @@ OBJS = $(patsubst %.c,%.o, $(SRCS))
 HEADER_PATH = -I/home/sherlock/libevent-2.0.22 
 LIB_PATH = -L/usr/local/lib
 
-LIBS = -levent
+LIBS = -levent -levent_pthreads -lpthread
 TARGET = test_$(M)
 
 $(TARGET) : $(OBJS)
