@@ -30,15 +30,6 @@ main(int argc, char **argv)
 
 	(void)WSAStartup(wVersionRequested, &wsaData);
 #endif
-/*
-	if (argc == 2 && !strcmp(argv[1], "-p")) {
-		event_is_persistent = 1;
-		flags = EV_PERSIST;
-	} else {
-		event_is_persistent = 0;
-		flags = 0;
-	}
-*/
     evthread_use_pthreads();
     memset(&addr,0,sizeof(struct sockaddr_in));
     addr.sin_family = AF_INET;
